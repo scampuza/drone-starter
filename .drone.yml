@@ -7,7 +7,8 @@ pipeline:
       - ./bin/drone-run-tests.sh api-tests
       - ./bin/drone-run-tests.sh web-tests
     when:
-      event: [pull_request]
+      #event: [pull_request]
+      branch: ["stage"]
 
   publish-api-docker:
     image: plugins/docker:1.12
