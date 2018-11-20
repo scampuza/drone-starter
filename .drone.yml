@@ -57,12 +57,6 @@ pipeline:
       branch: ["master", "production"]
     secrets: [docker_username, docker_password, docker_email]
 
-  # mostrar_secretos:
-  #   image: alpine
-  #   commands: 
-  #     - printenv
-  #   secrets: [docker_username, docker_password, docker_email, ssh_key]
-
   deploy-staging:
     image: williamyeh/ansible:ubuntu16.04
     commands:
@@ -82,7 +76,7 @@ pipeline:
     # read here how to setup slack webhooks for your account: https://api.slack.com/incoming-webhooks
     webhook: https://hooks.slack.com/services/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
     username: santiago
-    icon_emoji: ":rocket:"
+    icon_url: https://unsplash.it/256/256/?random
     when:
       event: [ push, tag, deployment, pull_request ]
       status: [ success, failure ]
